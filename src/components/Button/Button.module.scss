@@ -1,0 +1,12 @@
+.defaultButton {
+  background-color: yellow;
+  padding: 10px;
+  outline: none;
+  border: none;
+
+  &:hover {
+    background-color: green;
+    color: white;
+  }
+}
+
