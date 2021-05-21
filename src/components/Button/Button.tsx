@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import styles from './Button.module.scss';
+import { ReactComponent as Add } from './assets/Add.svg'; 
 
 type ButtonProps = {
   type: 'submit' | 'reset' | 'button';
@@ -12,6 +13,7 @@ const Button = ({ type, value, style }: ButtonProps) => {
   const overallStyle = classNames(styles.defaultButton, style);
 
   return (<button type={type} className={overallStyle}>
+    <Add />
     {value}
   </button>);
 };
