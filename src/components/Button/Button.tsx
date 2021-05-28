@@ -1,21 +1,30 @@
 import classNames from 'classnames';
 import styles from './Button.module.scss';
-import { ReactComponent as Add } from './assets/Add.svg'; 
 
-type ButtonProps = {
+export type ButtonProps = {
   type: 'submit' | 'reset' | 'button';
-  value: string;
-  style: string | null;
+  value: string | null;
+  style?: string | null;
+  disabled: boolean;
+  name: string;
+  icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
 }
 
-const Button = ({ type, value, style }: ButtonProps) => {
-
+function Button ({ type, value, style, disabled, name, icon}: ButtonProps) {
+  
   const overallStyle = classNames(styles.defaultButton, style);
+  const DisplayIcon = icon;
 
-  return (<button type={type} className={overallStyle}>
-    <Add />
-    {value}
-  </button>);
-};
+  return (<button 
+        type={type} 
+        className={overallStyle}
+        disabled={disabled}
+        name={name}
+        >
+          <DisplayIcon />
+        {value}
+      </button>
+      );
+}
 
 export default Button;
