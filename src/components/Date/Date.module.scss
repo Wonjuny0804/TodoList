@@ -15,6 +15,10 @@
   width: 175px;
   text-align: center;
   vertical-align: middle;
+
+  &:hover {
+    color: #77aa89;
+  }
 }
 
 .dateMonth {
@@ -23,5 +27,9 @@
   p {
     margin: 0;
     padding: 0;
+
+    &:hover {
+      color: #366973;
+    }
   }
 }
