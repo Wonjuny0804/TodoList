@@ -1,3 +1,5 @@
+/* eslint-disable react/button-has-type */
+import React from 'react';
 import classNames from 'classnames';
 import styles from './Button.module.scss';
 
