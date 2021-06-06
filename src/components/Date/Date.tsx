@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Date.module.scss';
 
-type DateProps = {
+export type DateProps = {
   month: number;
   day: number;
   date: number;
@@ -20,7 +20,7 @@ function Date({month, day, date}: DateProps) {
     setDisplayMonth(months[month]);
     setDisplayDay(days[day]);
     setDisplayDate(date);
-  }, [months, month, days, day, date]);
+  }, [month, day, date]);
 
   return (
   <div className={styles.dateClass}>
