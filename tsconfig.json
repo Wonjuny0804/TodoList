@@ -21,6 +21,11 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
+  "parserOptions": {
+    "project": "tsconfig.json",
+    "tsconfigRootDir": "__dirname",
+    "sourceType": "module",
+  },
   "include": [
     "src"
   ],

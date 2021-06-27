@@ -38,7 +38,11 @@
     "parserOptions": {
       "project": "./tsconfig.json"
     },
-    "ignorePatterns": ["stories.js", "*.stories.js", "*.stories.ts"],
+    "ignorePatterns": [
+      "stories.js",
+      "*.stories.js",
+      "*.stories.ts"
+    ],
     "overrides": [
       {
         "files": [

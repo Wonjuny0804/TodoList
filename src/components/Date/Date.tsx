@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from './Date.module.scss';
+import React, { useState, useEffect } from 'react'
+import styles from './Date.module.scss'
 
 export type DateProps = {
   month: number;
@@ -9,14 +9,14 @@ export type DateProps = {
 
 function Date({month, day, date}: DateProps) {
 
-  const [displayMonth, setDisplayMonth] = React.useState('');
-  const [displayDay, setDisplayDay] = React.useState('');
-  const [displayDate, setDisplayDate] = React.useState(1);
+  const [displayMonth, setDisplayMonth] = useState('');
+  const [displayDay, setDisplayDay] = useState('');
+  const [displayDate, setDisplayDate] = useState(1);
 
   const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
   const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
-  React.useEffect(() => {
+  useEffect(() => {
     setDisplayMonth(months[month]);
     setDisplayDay(days[day]);
     setDisplayDate(date);
