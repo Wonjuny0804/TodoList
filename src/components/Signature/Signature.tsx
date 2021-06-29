@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from './Signature.module.scss'
 
 export type SignatureProps = {
     first_name: string;
@@ -9,10 +10,10 @@ export type SignatureProps = {
 
 function Signature({ first_name, last_name, occupation, description}: SignatureProps) {
 
-    return (<div>
-        <h1>{first_name}, {last_name}</h1>
-        <h2>{occupation}</h2>
-        {description.map((des) => (<p key={`${des}`}>{des}</p>))}
+    return (<div className={styles.signatureWrapper}>
+        <h1 className={styles.name}>{first_name}, {last_name}</h1>
+        <h2 className={styles.occupation}>{occupation}</h2>
+        {description.map((des, index) => (<p className={styles[`description-${index}`]}key={`${des}`}>{des}</p>))}
     </div>)
 }
 

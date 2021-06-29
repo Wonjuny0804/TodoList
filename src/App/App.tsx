@@ -6,7 +6,7 @@ import {
 
 function App() {
   return (<div className="App">
-    <Signature first_name="Wonjun" last_name="Jang" occupation="Frontend Enginner" description={['creative tech enthusiast', 'interested in art']} />
+    <Signature first_name="Wonjun" last_name="Jang" occupation="Frontend Engineer" description={['Creative Tech Enthusiast', 'interested in Art']} />
   </div>
   );
 }
