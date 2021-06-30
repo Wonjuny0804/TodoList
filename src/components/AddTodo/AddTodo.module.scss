@@ -1,0 +1,25 @@
+.addTodoWrapper {
+
+     display: flex;
+     flex-direction: column;
+     position: relative;
+}
+.heading {
+
+    font-size: 4.8rem;
+    display: inline;
+    margin: 0;
+    text-align: left;
+}
+
+.addTodoInput {
+    width: 100%;
+    height: 57px;
+    font-size: 2rem;
+}
+
+.addTodoButton {
+
+    position: absolute;
+    right: 0;
+}
