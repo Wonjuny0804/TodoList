@@ -36,7 +36,8 @@
       "prettier"
     ],
     "parserOptions": {
-      "project": "./tsconfig.json"
+      "project": "tsconfig.json",
+      "sourceType": "module"
     },
     "ignorePatterns": [
       "stories.js",
@@ -54,7 +55,8 @@
           "react/jsx-filename-extension": 0,
           "react/jsx-one-expression-per-line": 0,
           "react/prop-types": 0,
-          "react/react-in-jsx-scope": 0,
+          "react/react-in-jsx-scope": "off",
+          "react/jsx-uses-react": "off",
           "jsx-a11y/label-has-associated-control": [
             "error",
             {
