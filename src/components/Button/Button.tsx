@@ -10,9 +10,10 @@ export type ButtonProps = {
   disabled: boolean;
   name: string;
   icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+  onClick: React.MouseEventHandler
 }
 
-function Button ({ type, value, style, disabled, name, icon}: ButtonProps) {
+function Button ({ type, value, style, disabled, name, icon, onClick}: ButtonProps) {
   
   const overallStyle = classNames(styles.defaultButton, style);
   const DisplayIcon = icon;
@@ -22,6 +23,7 @@ function Button ({ type, value, style, disabled, name, icon}: ButtonProps) {
         className={overallStyle}
         disabled={disabled}
         name={name}
+        onClick={onClick}
         >
           <DisplayIcon />
         {value}
