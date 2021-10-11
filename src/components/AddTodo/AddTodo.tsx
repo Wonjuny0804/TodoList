@@ -1,25 +1,41 @@
-import React, { KeyboardEvent, MouseEvent } from 'react';
+import React, { MouseEvent, useState } from 'react';
 import { Button } from '../index';
 import {ReactComponent as Add} from '../Button/assets/Add.svg'; 
 import styles from './AddTodo.module.scss';
+import classNames from "classnames";
+import { Todo } from "../../core/index";
 
-function AddTodo() {
+interface AddTodoProps {
+    className?: string;
+    addTodo: React.Dispatch<React.SetStateAction<Array<Todo>>>;
+    currentTodos: Array<Todo>;
+}
 
-    const handleAddTodoClick = (event: MouseEvent) => {
-        console.log(event.target)
+function AddTodo({ className, addTodo, currentTodos }: AddTodoProps):JSX.Element {
+
+    const [writtenTodo, setWrittenTodo] = useState<string>("");
+
+    const handleAddTodoClick = () => {
+        const currentTodosID = currentTodos.map(todo => todo.id);
+        const maxTodoID = Math.max(...currentTodosID);
+
+        addTodo([...currentTodos, { id: maxTodoID + 1, todo: writtenTodo, done: false}])
     }
 
-    const handleInputOnKeyDown = (event: KeyboardEvent) => {
-        console.log(event.target)
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const target = e.target as HTMLInputElement;
+        const value = target.value;
+
+        setWrittenTodo(value);
     }
     
     return (
-        <section className={styles.addTodoWrapper}>
+        <section className={className ? classNames(styles.addTodoWrapper, className) : styles.addTodoWrapper}>
             <h2 className={styles.heading}>Add</h2>
             <input 
                 type="text" 
                 className={styles.addTodoInput}
-                onKeyDown={handleInputOnKeyDown}
+                onChange={handleInputChange}
             />
             <Button
                 type="button"
