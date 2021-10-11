@@ -12,6 +12,7 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "classnames": "^2.3.1",
+    "framer-motion": "^4.1.17",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -83,6 +84,14 @@
         "env": {
           "browser": true
         }
+      },
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
       }
     ]
   },
@@ -99,12 +108,12 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.2.9",
-    "@storybook/addon-essentials": "^6.2.9",
-    "@storybook/addon-links": "^6.2.9",
-    "@storybook/node-logger": "^6.2.9",
-    "@storybook/preset-create-react-app": "^3.1.7",
-    "@storybook/react": "^6.2.9",
+    "@storybook/addon-actions": "^6.3.10",
+    "@storybook/addon-essentials": "^6.3.10",
+    "@storybook/addon-links": "^6.3.10",
+    "@storybook/node-logger": "^6.3.10",
+    "@storybook/preset-create-react-app": "^3.2.0",
+    "@storybook/react": "^6.3.10",
     "@typescript-eslint/eslint-plugin": "^4.24.0",
     "@typescript-eslint/parser": "^4.24.0",
     "eslint": "^7.11.0",
