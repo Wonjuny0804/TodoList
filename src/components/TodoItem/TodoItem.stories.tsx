@@ -1,6 +1,7 @@
 import TodoItem from "./TodoItem";
 import { Meta } from "@storybook/react";
 import { useState } from "react";
+import { Todo } from "../../core/index";
 
 export default {
   title: "component/TodoItem",
@@ -8,7 +9,7 @@ export default {
 } as Meta;
 
 export const SampleTodoItem = (): JSX.Element => {
-  const [cleared, setCleared] = useState<boolean>(false);
+  const [todos, setTodos] = useState<Array<Todo>>([]);
 
-  return <TodoItem todo="Do something" cleared={cleared} setCleared={setCleared}/>
+  return <TodoItem todo={{ id: 1, todo: "Do something", done: false }} setTodo={setTodos} allTodos={todos}/>
 }

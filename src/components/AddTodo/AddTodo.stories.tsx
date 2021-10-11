@@ -1,5 +1,7 @@
 import AddTodo from "./AddTodo";
 import { Meta } from "@storybook/react";
+import { useState } from "react";
+import { Todo } from "../../core/index";
 
 export default {
   title: "component/AddTodo",
@@ -7,6 +9,7 @@ export default {
 } as Meta;
 
 export const AddTodoTest = ():JSX.Element => {
-  return <AddTodo />
+ const [todos, setTodos] = useState<Array<Todo>>([]);
+  return <AddTodo addTodo={setTodos} currentTodos={todos}/>
 }
 
