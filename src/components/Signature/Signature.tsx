@@ -8,13 +8,15 @@ export type SignatureProps = {
     description: Array<string>;
   }
 
-function Signature({ first_name, last_name, occupation, description}: SignatureProps) {
+function Signature({ first_name, last_name, occupation, description}: SignatureProps): JSX.Element {
 
-    return (<div className={styles.signatureWrapper}>
+    return (
+    <div className={styles.signatureWrapper}>
         <h1 className={styles.name}>{first_name}, {last_name}</h1>
         <h2 className={styles.occupation}>{occupation}</h2>
         {description.map((des, index) => (<p className={styles[`description-${index}`]}key={`${des}`}>{des}</p>))}
-    </div>)
+    </div>
+    )
 }
 
 
