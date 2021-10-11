@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 export { default as Button } from './Button/Button'
 export { default as Signature } from './Signature/Signature'
 export { default as Date } from './Date/Date'
