@@ -28,4 +28,3 @@ package-lock.json
 eslintrc.js
 .prettierrc
 .vscode
-.storybook
