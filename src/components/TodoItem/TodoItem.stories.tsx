@@ -10,5 +10,5 @@ export default {
 export const SampleTodoItem = (): JSX.Element => {
   const [cleared, setCleared] = useState<boolean>(false);
 
-  return <TodoItem todo="study React" cleared={cleared} setCleared={setCleared}/>
+  return <TodoItem todo="Do something" cleared={cleared} setCleared={setCleared}/>
 }
