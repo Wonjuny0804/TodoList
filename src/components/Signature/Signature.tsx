@@ -18,4 +18,4 @@ function Signature({ first_name, last_name, occupation, description}: SignatureP
 }
 
 
-export default Signature
+export default Signature;
