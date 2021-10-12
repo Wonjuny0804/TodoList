@@ -22,7 +22,7 @@ const MainPage: FC<MainPageProps> = ({ today }) => {
           <Icon name="logo"/>
         </div>
         <div className={styles.todosWrapper}>
-          {todos.map((todo) => <TodoItem key={todo.todo} todo={todo} setTodo={setTodos} allTodos={todos}/>)}
+          {todos.map((todo) => <TodoItem key={todo.id} todo={todo} setTodo={setTodos} allTodos={todos}/>)}
         </div>
       </div>
       <AddTodo addTodo={setTodos} currentTodos={todos}/>

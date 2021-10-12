@@ -16,10 +16,16 @@ function AddTodo({ className, addTodo, currentTodos }: AddTodoProps):JSX.Element
     const [writtenTodo, setWrittenTodo] = useState<string>("");
 
     const handleAddTodoClick = () => {
-        const currentTodosID = currentTodos.map(todo => todo.id);
-        const maxTodoID = Math.max(...currentTodosID);
+        if (writtenTodo === "") return;
 
-        addTodo([...currentTodos, { id: maxTodoID + 1, todo: writtenTodo, done: false}])
+        const currentTodosID = currentTodos.map(todo => todo.id);
+        if (currentTodosID.length === 0) {
+            addTodo([{ id: 1, todo: writtenTodo, done: false }]);
+        } else {
+            const maxTodoID = Math.max(...currentTodosID);
+            addTodo([...currentTodos, { id: maxTodoID + 1, todo: writtenTodo, done: false}]);
+        }
+
     }
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {

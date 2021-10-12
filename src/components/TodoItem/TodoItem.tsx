@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useCallback } from "react";
 import { Icon } from "../index";
 import styles from "./TodoItem.module.scss";
 import classNames from "classnames";
@@ -12,16 +12,19 @@ interface TodoItemProps {
 
 const TodoItem: FC<TodoItemProps> = ({ todo, setTodo, allTodos}): JSX.Element => {
   
-  const handleTodoCleared = () => {
-    setTodo(allTodos.map((prevTodo) => {
+  const handleTodoCleared = useCallback(() => {
+    const newTodos = allTodos.map((prevTodo) => {
       if (prevTodo.id !== todo.id) return prevTodo;
 
       return {
         ...prevTodo,
         done: !prevTodo.done
-      }
-    }))
-  }
+      } 
+    });
+
+    setTodo(newTodos);
+  }, [allTodos, todo]);
+
   
   return (
   <div className={todo.done ? classNames(styles.itemWrapper, styles.checked) : styles.itemWrapper}>
