@@ -1,12 +1,19 @@
-.componentWrapper {
-  position: relative;
-}
-
 .itemWrapper {
-  height: 57px;
+  height: 56px;
   display: flex;
   border: 1px solid #000000;
   border-collapse: collapse;
+
+  .deleteButton {
+    background-color: transparent;
+    border: none;
+    border-right: 1px solid #000000;
+    cursor: pointer;
+  }
+
+  .completeDelete {
+    border-right: 1px solid #3757ff;
+  }
 }
 
 .label {
@@ -32,24 +39,4 @@
   border-color: #3757ff;
   text-decoration-line: line-through;
   color: #3757ff;
-}
-
-.deleteButton {
-  // display: none;
-  width: 100%;
-  background-color: transparent;
-  border: none;
-}
-
-.hovered {
-  width: 100%;
-  height: 100%;
-  top: 0;
-  background-color: transparent;
-  border: none;
-  position: absolute;
-  background-color: turquoise;
-  cursor: pointer;
-  font-size: 18px;
-  font-family: 'Helvetica';
 }

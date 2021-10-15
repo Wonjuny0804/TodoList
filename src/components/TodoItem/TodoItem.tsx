@@ -13,11 +13,6 @@ interface TodoItemProps {
 }
 
 const TodoItem: FC<TodoItemProps> = ({ todo, setTodo, allTodos}): JSX.Element => {
-
-  const divRef = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-
-  const [mouseHovered, setMouseHovered] = useState<boolean>(false);
   
   const handleTodoCleared = useCallback(() => {
     const newTodos = allTodos.map((prevTodo) => {
@@ -32,42 +27,28 @@ const TodoItem: FC<TodoItemProps> = ({ todo, setTodo, allTodos}): JSX.Element =>
     setTodo(newTodos);
   }, [allTodos, todo]);
 
-  const handelMouseOver = useCallback(() => {
-    setMouseHovered(true);
-  }, [setMouseHovered]);
-
-  const handleMouseOut = useCallback(() => {
-    setMouseHovered(false);
-  }, [setMouseHovered])
 
   
   return (
     <AnimatePresence>
-      <div className={styles.componentWrapper}>
-        <div 
-          className={todo.done ? classNames(styles.itemWrapper, styles.checked) : styles.itemWrapper}
-          ref={divRef}
-          onMouseOver={handelMouseOver}
-          onMouseOut={handleMouseOut}
-        >
-          <label className={todo.done ? classNames(styles.label, styles.checked) : styles.label}>{todo.todo}</label>
-          <div 
-            onClick={handleTodoCleared} 
-            className={todo.done ? classNames(styles.checkbox, styles.checked) : styles.checkbox}
-          >
-            {todo.done && <Icon name="checked"/>}
-          </div>
-        </div>
+      <div 
+        className={todo.done ? classNames(styles.itemWrapper, styles.checked) : styles.itemWrapper}
+      >
         <motion.button 
-          type="button"
-          className={mouseHovered ? classNames(styles.deleteButton, styles.hovered) : styles.deleteButton}
-          // className={styles.hovered}
-          variants={variants}
-          ref={buttonRef}
+        type="button"
+        className={todo.done ? classNames(styles.deleteButton, styles.completeDelete) : styles.deleteButton}
+        variants={variants}
         >
-          remove
+          <Icon name={todo.done ? "deleteCompleted" : "delete"} />
         </motion.button>
-      </div>
+        <label className={todo.done ? classNames(styles.label, styles.checked) : styles.label}>{todo.todo}</label>
+        <div 
+          onClick={handleTodoCleared} 
+          className={todo.done ? classNames(styles.checkbox, styles.checked) : styles.checkbox}
+        >
+          {todo.done && <Icon name="checked"/>}
+        </div>
+    </div>
   </AnimatePresence>
   )
 }
