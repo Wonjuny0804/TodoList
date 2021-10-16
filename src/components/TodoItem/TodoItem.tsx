@@ -27,6 +27,11 @@ const TodoItem: FC<TodoItemProps> = ({ todo, setTodo, allTodos}): JSX.Element =>
     setTodo(newTodos);
   }, [allTodos, todo]);
 
+  const handleDeleteClick = useCallback(() => {
+    const newTodos = allTodos.filter((prevTodo) => prevTodo.id !== todo.id);
+
+    setTodo(newTodos);
+  }, [allTodos, todo]);
 
   
   return (
@@ -38,6 +43,7 @@ const TodoItem: FC<TodoItemProps> = ({ todo, setTodo, allTodos}): JSX.Element =>
         type="button"
         className={todo.done ? classNames(styles.deleteButton, styles.completeDelete) : styles.deleteButton}
         variants={variants}
+        onClick={handleDeleteClick}
         >
           <Icon name={todo.done ? "deleteCompleted" : "delete"} />
         </motion.button>
