@@ -36,8 +36,11 @@ const TodoItem: FC<TodoItemProps> = ({ todo, setTodo, allTodos}): JSX.Element =>
   
   return (
     <AnimatePresence>
-      <div 
+      <motion.div 
         className={todo.done ? classNames(styles.itemWrapper, styles.checked) : styles.itemWrapper}
+        variants={variants}
+        initial="hidden"
+        animate="visible"
       >
         <motion.button 
         type="button"
@@ -54,7 +57,7 @@ const TodoItem: FC<TodoItemProps> = ({ todo, setTodo, allTodos}): JSX.Element =>
         >
           {todo.done && <Icon name="checked"/>}
         </div>
-    </div>
+    </motion.div>
   </AnimatePresence>
   )
 }
