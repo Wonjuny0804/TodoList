@@ -3,6 +3,8 @@ import React, { FC, useState } from "react";
 import { AddTodo, Date, Icon, Signature } from "../../components";
 import { Todo } from "../../core/index";
 import TodoItem from "../../components/TodoItem/TodoItem";
+import { useDispatch, useSelector, Provider } from "react-redux";
+import store, { selectTodos } from "../../redux/store"
 
 interface MainPageProps {
   today: Date;
@@ -10,7 +12,8 @@ interface MainPageProps {
 
 const MainPage: FC<MainPageProps> = ({ today }) => {
 
-  const [todos, setTodos] = useState<Array<Todo>>([]);
+  const todos = useSelector(selectTodos);
+  const dispatch = useDispatch();
 
   return (
   <main className={styles.mainContentWrapper}>
@@ -22,10 +25,10 @@ const MainPage: FC<MainPageProps> = ({ today }) => {
           <Icon name="logo"/>
         </div>
         <div className={styles.todosWrapper}>
-          {todos.map((todo) => <TodoItem key={todo.id} todo={todo} setTodo={setTodos} allTodos={todos}/>)}
+          {todos.map((todo) => <TodoItem key={todo.id} todo={todo} setTodo={dispatch} allTodos={todos}/>)}
         </div>
       </div>
-      <AddTodo addTodo={setTodos} currentTodos={todos}/>
+      <AddTodo setTodo={dispatch} currentTodos={todos}/>
     </section>
     <section className={styles.signature}>
       <Signature

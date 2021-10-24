@@ -5,32 +5,22 @@ import classNames from "classnames";
 import { Todo } from "../../core";
 import { motion, AnimatePresence } from "framer-motion";
 import { variants } from "../../Animation/variants";
+import { addTodo, removeTodo, completeTodo } from "../../redux/todoSlice";
 
 interface TodoItemProps {
   todo: Todo;
-  setTodo: React.Dispatch<React.SetStateAction<Array<Todo>>>;
+  setTodo: React.Dispatch<any>;
   allTodos: Array<Todo>;
 }
 
 const TodoItem: FC<TodoItemProps> = ({ todo, setTodo, allTodos}): JSX.Element => {
   
   const handleTodoCleared = useCallback(() => {
-    const newTodos = allTodos.map((prevTodo) => {
-      if (prevTodo.id !== todo.id) return prevTodo;
-
-      return {
-        ...prevTodo,
-        done: !prevTodo.done
-      }
-    });
-
-    setTodo(newTodos);
+    return setTodo(completeTodo(todo.id))
   }, [allTodos, todo]);
 
   const handleDeleteClick = useCallback(() => {
-    const newTodos = allTodos.filter((prevTodo) => prevTodo.id !== todo.id);
-
-    setTodo(newTodos);
+    return setTodo(removeTodo(todo.id));
   }, [allTodos, todo]);
 
   

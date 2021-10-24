@@ -10,6 +10,6 @@ export default {
 
 export const AddTodoTest = ():JSX.Element => {
  const [todos, setTodos] = useState<Array<Todo>>([]);
-  return <AddTodo addTodo={setTodos} currentTodos={todos}/>
+  return <AddTodo setTodo={setTodos} currentTodos={todos}/>
 }
 
